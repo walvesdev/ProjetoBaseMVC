@@ -1,0 +1,41 @@
+﻿@model ProjetoBaseMVC.Model.Models.Empresa
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Empresa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+
+            @using (Html.BeginForm("Create", "Empresa","POST"))
+            {
+                @Html.LabelFor(e => e.Nome)
+                @Html.EditorFor(e => e.Nome)
+                @Html.ValidationMessageFor(e => e.Nome) <br />
+
+                @Html.LabelFor(e => e.DataFundacao)
+                @Html.EditorFor(e => e.DataFundacao)
+                @Html.ValidationMessageFor(e => e.DataFundacao)
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+
+            }
+        </div>
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
